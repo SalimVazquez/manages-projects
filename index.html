@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Analizador léxico</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/logoUP.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+  <!-- Wrapper -->
+  <div id="wrapper">
+    <!-- Header -->
+    <header id="header" class="alt">
+      <span class="logo"><img src="images/logoUP.png" alt="" /></span>
+      <h1>Compiladores y Interpretes</h1>
+      <p>Analizador léxico : Gestor de Proyectos</p>
+    </header>
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li><a href="#intro" class="active">Introducción</a></li>
+        <li><a href="#Table">Tabla de tokens</a></li>
+        <li><a href="#run">Ejecutar</a></li>
+        <li><a href="#Results">Resultados</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+      <!-- Introduction -->
+      <section id="intro" class="main">
+        <div class="spotlight">
+          <div class="content">
+            <header class="major">
+              <h2>Para comenzar</h2>
+            </header>
+            <p>Este programa tiene como objetivo identificar los tokens, en base a los lexemas ingresados.
+              Para ello se usarán expresiones regulares de JS.
+            </p>
+          </div>
+          <span class="image"><img id="logoWork" src="images/logo2.jpeg" alt="Image of JS" /></span>
+        </div>
+      </section>
+
+      <!-- Table Section -->
+      <section id="Table" class="main special">
+        <header class="major">
+          <h2>Tabla de tokens</h2>
+          <button id="accordeTokensTable" style="font-size: 20px; width:auto; border: 1px solid #177DDF"
+            onclick="actionTable()"><i class="far fa-eye" id="eye-show"></i><i class="far fa-eye-slash" id="eye-ocult"
+              style="display: none;"></i></button>
+        </header>
+        <section id="sectionTableToken" style="display: none;">
+          <div class="table-wrapper">
+            <table class="alt" style="margin: 0 auto; width:max-content">
+              <thead>
+                <tr>
+                  <th>Reservados</th>
+                  <th>Variable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>generate</td>
+                  <td>a..z</td>
+                </tr>
+                <tr>
+                  <td>-h</td>
+                  <td>A...Z</td>
+                </tr>
+                <tr>
+                  <td>-v</td>
+                </tr>
+                <tr>
+                  <td>about</td>
+                </tr>
+                <tr>
+                  <td>browse</td>
+                </tr>
+                <tr>
+                  <td>create-project</td>
+                </tr>
+                <tr>
+                  <td>show</td>
+                </tr>
+                <tr>
+                  <td>HTML</td>
+                </tr>
+                <tr>
+                  <td>Node</td>
+                </tr>
+                <tr>
+                  <td>Laravel</td>
+                </tr>
+                <tr>
+                  <td>Angular</td>
+                </tr>
+                <tr>
+                  <td>git clone https://github.com/SalimVazquez/</td>
+                </tr>
+                <tr>
+                  <td>proyectHTML.git</td>
+                </tr>
+                <tr>
+                  <td>proyectNode.git</td>
+                </tr>
+                <tr>
+                  <td>proyectLaravel.git</td>
+                </tr>
+                <tr>
+                  <td>proyectAngular.git</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <!-- Run Section -->
+      <section id="run" class="main special">
+        <header class="major">
+          <h2>Ejecutar</h2>
+        </header>
+        <input class="col-12 col-12-xsmall" type="text" name="lexemas" id="lexemas"
+          placeholder="Ingrese los lexemas a evaluar">
+        <footer class="major">
+          <ul class="actions special">
+            <li><button class="button primary icon solid fa-power-off" style="background-color: #177DDF;" id="btnStart"
+                onclick="evaluateLexema()">Empezar!</button></li>
+            <li><button class="button primary" style="background-color: rgb(139, 139, 139);" onclick="window.location.reload();"><i
+                  class="fas fa-redo-alt"></i>&nbsp;&nbsp;Limpiar!</button></li>
+          </ul>
+        </footer>
+      </section>
+      <!-- Results Section -->
+      <section id="Results" class="main special" style="display: none;">
+        <header class="major">
+          <h2>Resultado</h2>
+        </header>
+        <ul class="statistics">
+          <li class="style1">
+            <i class="fas fa-lock" style="font-size: 120px;"></i>
+            <strong id="countReserveds">5,120</strong> Reservados
+          </li>
+          <li class="style2">
+            <i class="fas fa-random" style="font-size: 120px;"></i>
+            <strong id="countVars">8,192</strong> Variables
+          </li>
+          <li class="style3">
+            <i class="fas fa-times" style="font-size: 120px;"></i>
+            <strong id="countErrors">8,192</strong> Errores
+          </li>
+        </ul>
+        <br />
+        <section id="sectionTableToken">
+          <div class="table-wrapper">
+            <div class="container" style="display: table-row">
+              <ul class="alt" style="width: 30%; display: table-cell" id="listReserveds">
+                <h4><strong>Reservadas</strong></h4>
+              </ul>
+              <ul class="alt" style="width: 30%; display: table-cell" id="listVars">
+                <h4><strong>Variables</strong></h4>
+              </ul>
+              <ul class="alt" style="width: 30%; display: table-cell" id="listErrors">
+                <h4><strong>Errores</strong></h4>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="contenedor">
+        <div id="contenidos">
+          <div id="columna1">
+            <h2>Salim Vazquez Solis &nbsp; <i class="fab fa-angellist"></i></h2>
+          </div>
+          <div id="columna2"><a href="mailto:salimvzqz@gmail.com" style="font-size: 20px;">salimvzqz@gmail.com</a>
+          </div>
+          <div id="columna3">
+            <ul class="icons">
+              <li><a href="https://www.instagram.com/salim.vazquez/?hl=es-la" class="icon brands fa-instagram alt"><span
+                    class="label">Instagram</span></a></li>
+              <li><a href="https://github.com/SalimVazquez?tab=repositories" class="icon brands fa-github alt"><span
+                    class="label">GitHub</span></a></li>
+              <li><a href="https://gitlab.com/SvS21" class="icon brands fa-gitlab alt"><span
+                    class="label">Gitlab</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/style.js"></script>
+  <script src="assets/js/evaluateLexema.js"></script>
+</body>
+
+</html>
