@@ -35,29 +35,29 @@ function evaluateLexema(){
         }
     }
 
-    console.log(arrayCadena);
+    // console.log(arrayCadena);
     var ulReserved = document.getElementById('listReserveds');
-    console.log('<==Reservadas==>');
+    // console.log('<==Reservadas==>');
     for(let i=0; i<arrayReserveds.length; i++) {
-        console.log(arrayReserveds[i][0]);
+        // console.log(arrayReserveds[i][0]);
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(arrayReserveds[i][0]));
         ulReserved.appendChild(li);
     }
 
     var ulVars = document.getElementById('listVars');
-    console.log('<==Variables==>');
+    // console.log('<==Variables==>');
     for(let i=0; i<arrayVars.length; i++) {
-        console.log(arrayVars[i][0]);
+        // console.log(arrayVars[i][0]);
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(arrayVars[i][0]));
         ulVars.appendChild(li);
     }
 
     var ulErrors = document.getElementById('listErrors');
-    console.log('<==Errores==>');
+    // console.log('<==Errores==>');
     for(let i=0; i<errors.length; i++) {
-        console.log(errors[i]);
+        // console.log(errors[i]);
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(errors[i]));
         ulErrors.appendChild(li);

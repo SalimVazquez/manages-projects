@@ -121,20 +121,6 @@ input, select, textarea {
 		transform: scale(1.5);
 	}
 
-	#contenedor {
-		display: table; 
-		width: 100% !important
-	}
-
-	#contenidos {
-		display: table-row;
-	}
-
-	#columna1, #columna2, #columna3 {
-		display: table-cell;
-	  }
-
-
 	body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 		-moz-animation: none !important;
 		-webkit-animation: none !important;
