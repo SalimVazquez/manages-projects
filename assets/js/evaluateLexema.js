@@ -22,13 +22,17 @@ function evaluateLexema(){
                 arrayCadena[i+2] = "*";
             } else {
                 errors.push(resultLink);
+                let i = 0;
+                while (arrayAuxLink.length > 0) {
+                    arrayAuxLink.pop();
+                }
             }
         }
         let resultNormal = arrayCadena[i].match(expRegReser);
         let resultVar = arrayCadena[i].match(expRegVar);
         if (resultNormal) {
             arrayReserveds.push(resultNormal);
-        } else if(resultVar && arrayCadena[i] != "git" && arrayCadena[i] != "clone" && arrayCadena[i] != "GIT" && arrayCadena[i] != "CLONE") {
+        } else if(resultVar && arrayCadena[i] != "git" && arrayCadena[i] != "clone" && arrayCadena[i] != "GIT" && arrayCadena[i] != "CLONE" && arrayCadena[i] != null) {
             arrayVars.push(resultVar);
         } else if(arrayCadena[i] != "*") {
             errors.push(arrayCadena[i]);
