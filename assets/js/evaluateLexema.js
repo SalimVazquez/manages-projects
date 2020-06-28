@@ -5,7 +5,6 @@ function evaluateLexema(){
     let stringInput = document.getElementById('lexemas').value;
     let arrayCadena = stringInput.split(" ");
     let arrayAuxLink = [];
-    let expRegLink = new RegExp('^git clone https://github.com/SalimVazquez/$', 'm');
     let expRegVar = /^[a-zA-z]+$/g;
     let expRegReser = /(^generate$|^-h$|^-v$|^about$|^browse$|^create-project$|^show$|^HTML$|^Node$|^Laravel$|^Angular$|^proyectHTML.git$|^proyectNode.git$|^proyectLaravel.git$|^proyectAngular.git$)/gm;
     for (let i=0; i<arrayCadena.length; i++) {
@@ -39,29 +38,22 @@ function evaluateLexema(){
         }
     }
 
-    // console.log(arrayCadena);
     var ulReserved = document.getElementById('listReserveds');
-    // console.log('<==Reservadas==>');
     for(let i=0; i<arrayReserveds.length; i++) {
-        // console.log(arrayReserveds[i][0]);
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(arrayReserveds[i][0]));
         ulReserved.appendChild(li);
     }
 
     var ulVars = document.getElementById('listVars');
-    // console.log('<==Variables==>');
     for(let i=0; i<arrayVars.length; i++) {
-        // console.log(arrayVars[i][0]);
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(arrayVars[i][0]));
         ulVars.appendChild(li);
     }
 
     var ulErrors = document.getElementById('listErrors');
-    // console.log('<==Errores==>');
     for(let i=0; i<errors.length; i++) {
-        // console.log(errors[i]);
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(errors[i]));
         ulErrors.appendChild(li);
@@ -70,5 +62,6 @@ function evaluateLexema(){
     document.getElementById("countReserveds").innerHTML = arrayReserveds.length;
     document.getElementById("countVars").innerHTML = arrayVars.length;
     document.getElementById("countErrors").innerHTML = errors.length;
-    $('#Results').css('display', 'block');
+    document.getElementById("button_icon_show").className = "fas fa-eye";
+    $('#ResultsTokens').css('display', 'block');
 }
