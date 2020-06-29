@@ -58,10 +58,9 @@ function evaluateLexema(){
         li.appendChild(document.createTextNode(errors[i]));
         ulErrors.appendChild(li);
     }
-
+    document.getElementById('button_icon_show_tokens').className = "fas fa-eye";
     document.getElementById("countReserveds").innerHTML = arrayReserveds.length;
     document.getElementById("countVars").innerHTML = arrayVars.length;
     document.getElementById("countErrors").innerHTML = errors.length;
-    document.getElementById("button_icon_show").className = "fas fa-eye";
     $('#ResultsTokens').css('display', 'block');
 }

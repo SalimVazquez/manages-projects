@@ -17,7 +17,7 @@
     <!-- Header -->
     <header id="header" class="alt">
       <span class="logo"><img src="images/logoUP.png" alt="" /></span>
-      <h1>Compiladores y Interpretes</h1>
+      <h1>Compiladores e Interpretes</h1>
       <p>Analizador : Gestor de Proyectos</p>
     </header>
     <!-- Nav -->
@@ -45,7 +45,7 @@
               <li>los tokens, en base a los lexemas ingresados.</li>
               <li>la sintaxis, en base a la entrada a evaluar.</li>
             </ul>
-            <p>Para ello se usarán expresiones regulares de JS y el método predictivo no recursivo.</p>
+            <p>Para ello se usarán expresiones regulares de JS</p>
           </div>
           <span class="image"><img id="logoWork" src="images/logo2.jpeg" alt="Image of JS" /></span>
         </div>
@@ -139,7 +139,7 @@
             <li><button class="button primary" style="background-color: rgb(139, 139, 139);"
                 onclick="window.location.reload();"><i class="fas fa-redo-alt"></i>&nbsp;&nbsp;Limpiar!</button></li>
             <li><button class="button primary" style="background-color: rgb(8, 185, 76);"
-                onclick="location.href = '#ResultsTokens';"><i id="button_icon_show"
+                onclick="location.href = '#ResultsTokens';"><i id="button_icon_show_tokens"
                   class="fas fa-spinner fa-pulse"></i>&nbsp;&nbsp;Ver resultados!</button></li>
           </ul>
         </footer>
@@ -147,7 +147,7 @@
       <!-- Results Tokens Section -->
       <section id="ResultsTokens" class="main special" style="display: none;">
         <header class="major">
-          <h2>Resultado</h2>
+          <h2>Resultado de Tokens</h2>
         </header>
         <ul class="statistics">
           <li class="style1">
@@ -194,7 +194,7 @@
             <li><button class="button primary" style="background-color: rgb(139, 139, 139);"
                 onclick="window.location.reload();"><i class="fas fa-redo-alt"></i>&nbsp;&nbsp;Limpiar!</button></li>
             <li><button class="button primary" style="background-color: rgb(8, 185, 76);"
-                onclick="location.href = '#ResultsTokens';"><i id="button_icon_show"
+                onclick="location.href = '#ResultsSintaxis';"><i id="button_icon_show_sintaxis"
                   class="fas fa-spinner fa-pulse"></i>&nbsp;&nbsp;Ver resultados!</button></li>
           </ul>
         </footer>
@@ -202,38 +202,14 @@
       <!-- Results Sintaxis Section -->
       <section id="ResultsSintaxis" class="main special" style="display: none;">
         <header class="major">
-          <h2>Resultado</h2>
+          <h2>Resultado de Sintaxis</h2>
         </header>
         <ul class="statistics">
-          <li class="style1">
-            <i class="fas fa-lock" style="font-size: 120px;"></i>
-            <strong id="">5,120</strong> Reservados
-          </li>
-          <li class="style2">
-            <i class="fas fa-random" style="font-size: 120px;"></i>
-            <strong id="">8,192</strong> Variables
-          </li>
-          <li class="style3">
-            <i class="fas fa-times" style="font-size: 120px;"></i>
-            <strong id="">8,192</strong> Errores
+          <li id="status_sintaxis" class="style2">
+            <i id="icon_sintaxis" class="fas fa-spell-check" style="font-size: 120px;"></i>
+            <strong id="message_sintaxis">Cadena correcta</strong>
           </li>
         </ul>
-        <br />
-        <section id="sectionTableToken">
-          <div class="table-wrapper">
-            <div class="container" style="width: 100%">
-              <ul class="alt" style="float:left; width:33.3%;" id="">
-                <h4><strong>Reservadas</strong></h4>
-              </ul>
-              <ul class="alt" style="float:left; width:33.3%;" id="">
-                <h4><strong>Variables</strong></h4>
-              </ul>
-              <ul class="alt" style="float:left; width:33.3%;" id="">
-                <h4><strong>Errores</strong></h4>
-              </ul>
-            </div>
-          </div>
-        </section>
       </section>
     </div>
     <!-- Footer -->
