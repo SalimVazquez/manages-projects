@@ -4,18 +4,13 @@ function evaluateSintaxis() {
     let aux_array = [];
     let input_string = $('#sintaxis').val();
     let input_array = input_string.split(" ");
-    console.log("length : " + input_array.length);
-    console.log("length : " + input_array[1]);
     try {
         if (input_array[index] === "generate") {
-            console.log("completo generate");
             index++;
             let expRegOptions = /(^-h$|^-v$|^about$|^browse$)/gm;
             let result = input_array[index].match(expRegOptions);
             if (result) {
-                console.log("completo primer evaluación: " + result);
                 if (input_array.length - 1 > index) {
-                    console.log("Error, ya no se esperaban más argumentos");
                     error_description = "Error, ya no se esperaban más argumentos";
                 }
             } else {
@@ -37,29 +32,23 @@ function evaluateSintaxis() {
                             let result = array_git.match(expRegClone);
                             if (result) {
                                 index = index + 3;
-                                let expRegIdRepo = /(^proyectHTML.git$|^proyectNODE.git$|^proyectLaravel.git$|^proyectAngular.git$)/gm;
+                                let expRegIdRepo = /(^proyectHTML.git$|^proyectNode.git$|^proyectLaravel.git$|^proyectAngular.git$)/gm;
                                 let result = input_array[index].match(expRegIdRepo);
                                 if (result) {
                                     if (input_array.length - 1 > index) {
-                                        console.log("Error, ya no se esperaban más argumentos");
                                         error_description = "Error, ya no se esperaban más argumentos";
                                     } else {
-                                        console.log("Exito!");
                                     }
                                 } else {
-                                    console.log("Error, se recibio: " + input_array[index] + " cuando se esperaba: idRepo");
                                     error_description = "Error, se recibio: " + input_array[index] + ", cuando se esperaba: idRepo";
                                 }
                             } else {
-                                console.log("Error, se recibio: " + input_array[index] + " cuando se esperaba: cloneProject");
                                 error_description = "Error, se recibio: " + input_array[index] + " cuando se esperaba: cloneProject";
                             }
                         } else {
-                            console.log("Error, se recibio: " + input_array[index] + " cuando se esperaba: name");
                             error_description = "Error, se recibio: " + input_array[index] + " cuando se esperaba: name";
                         }
                     } else {
-                        console.log("Error, se recibio: " + input_array[index] + " cuando se esperaba: argumentos");
                         error_description = "Error, se recibio: " + input_array[index] + " cuando se esperaba: argumentos";
                     }
                 } else if (input_array[index] === "show") {
@@ -68,26 +57,20 @@ function evaluateSintaxis() {
                     let result = input_array[index].match(expRegTipo);
                     if (result) {
                         if (input_array.length - 1 > index) {
-                            console.log("Error, ya no se esperaban más argumentos");
                             error_description = "Error, ya no se esperaban más argumentos";
                         } else {
-                            console.log("Exito!");
                         }
                     } else {
-                        console.log("Error, se recibio: " + input_array[index] + " cuando se esperaba: tipo");
                         error_description = "Error, se recibio: " + input_array[index] + " cuando se esperaba: tipo";
                     }
                 } else {
-                    console.log("Error, se recibio: " + input_array[index] + " cuando se esperaba: options");
                     error_description = "Error, se recibio: " + input_array[index] + " cuando se esperaba: options";
                 }
             }
         } else {
-            console.log("Error, se recibio: " + input_array[index] + " cuando se esperaba: generate");
             error_description = "Error, se recibio: " + input_array[index] + " cuando se esperaba: generate";
         }
     } catch (error) {
-        console.log("Error en: " + error);
         error_description = "Error, se esperaban más datos";
     }
 
