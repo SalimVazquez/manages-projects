@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Analizador léxico</title>
+  <title>Gestor de proyectos</title>
   <link rel="icon" type="image/png" sizes="16x16" href="images/logoUP.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -17,16 +17,16 @@
     <!-- Header -->
     <header id="header" class="alt">
       <span class="logo"><img src="images/logoUP.png" alt="" /></span>
-      <h1>Compiladores y Interpretes</h1>
-      <p>Analizador léxico : Gestor de Proyectos</p>
+      <h1>Compiladores e Interpretes</h1>
+      <p>Analizador : Gestor de Proyectos</p>
     </header>
     <!-- Nav -->
     <nav id="nav">
       <ul>
         <li><a href="#intro" class="active">Introducción</a></li>
         <li><a href="#Table">Tabla de tokens</a></li>
-        <li><a href="#run">Ejecutar</a></li>
-        <li><a href="#Results">Resultados</a></li>
+        <li><a href="#runTokens">Prueba de Tokens</a></li>
+        <li><a href="#runSintaxis">Prueba de Sintaxis</a></li>
       </ul>
     </nav>
 
@@ -39,9 +39,13 @@
             <header class="major">
               <h2>Para comenzar</h2>
             </header>
-            <p>Este programa tiene como objetivo identificar los tokens, en base a los lexemas ingresados.
-              Para ello se usarán expresiones regulares de JS.
-            </p>
+            <p>Esta pagina tiene como objetivo realizar 2 practicas de análisis al programa a desarrollar llamado:
+              Gestor de proyectos.</p>
+            <ul>
+              <li>los tokens, en base a los lexemas ingresados.</li>
+              <li>la sintaxis, en base a la entrada a evaluar.</li>
+            </ul>
+            <p>Para ello se usarán expresiones regulares de JS</p>
           </div>
           <span class="image"><img id="logoWork" src="images/logo2.jpeg" alt="Image of JS" /></span>
         </div>
@@ -121,26 +125,29 @@
         </section>
       </section>
 
-      <!-- Run Section -->
-      <section id="run" class="main special">
+      <!-- Run Tokens Section -->
+      <section id="runTokens" class="main special">
         <header class="major">
-          <h2>Ejecutar</h2>
+          <h2>Ejecutar prueba de tokens</h2>
         </header>
         <input class="col-12 col-12-xsmall" type="text" name="lexemas" id="lexemas"
           placeholder="Ingrese los lexemas a evaluar">
         <footer class="major">
           <ul class="actions special">
-            <li><button class="button primary icon solid fa-power-off" style="background-color: #177DDF;" id="btnStart"
-                onclick="evaluateLexema()">Empezar!</button></li>
+            <li><button class="button primary icon solid fa-power-off" style="background-color: #177DDF;"
+                id="btnStartTokens" onclick="evaluateLexema()">Empezar!</button></li>
             <li><button class="button primary" style="background-color: rgb(139, 139, 139);"
                 onclick="window.location.reload();"><i class="fas fa-redo-alt"></i>&nbsp;&nbsp;Limpiar!</button></li>
+            <li><button class="button primary" style="background-color: rgb(8, 185, 76);"
+                onclick="location.href = '#ResultsTokens';"><i id="button_icon_show_tokens"
+                  class="fas fa-spinner fa-pulse"></i>&nbsp;&nbsp;Ver resultados!</button></li>
           </ul>
         </footer>
       </section>
-      <!-- Results Section -->
-      <section id="Results" class="main special" style="display: none;">
+      <!-- Results Tokens Section -->
+      <section id="ResultsTokens" class="main special" style="display: none;">
         <header class="major">
-          <h2>Resultado</h2>
+          <h2>Resultado de Tokens</h2>
         </header>
         <ul class="statistics">
           <li class="style1">
@@ -172,6 +179,37 @@
             </div>
           </div>
         </section>
+      </section>
+      <!-- Run Sintaxis Section -->
+      <section id="runSintaxis" class="main special">
+        <header class="major">
+          <h2>Ejecutar prueba de sintaxis</h2>
+        </header>
+        <input class="col-12 col-12-xsmall" type="text" name="sintaxis" id="sintaxis"
+          placeholder="Ingrese la entrada a evaluar">
+        <footer class="major">
+          <ul class="actions special">
+            <li><button class="button primary icon solid fa-power-off" style="background-color: #177DDF;"
+                id="btnStartSintaxis" onclick="evaluateSintaxis();">Empezar!</button></li>
+            <li><button class="button primary" style="background-color: rgb(139, 139, 139);"
+                onclick="window.location.reload();"><i class="fas fa-redo-alt"></i>&nbsp;&nbsp;Limpiar!</button></li>
+            <li><button class="button primary" style="background-color: rgb(8, 185, 76);"
+                onclick="location.href = '#ResultsSintaxis';"><i id="button_icon_show_sintaxis"
+                  class="fas fa-spinner fa-pulse"></i>&nbsp;&nbsp;Ver resultados!</button></li>
+          </ul>
+        </footer>
+      </section>
+      <!-- Results Sintaxis Section -->
+      <section id="ResultsSintaxis" class="main special" style="display: none;">
+        <header class="major">
+          <h2>Resultado de Sintaxis</h2>
+        </header>
+        <ul class="statistics">
+          <li id="status_sintaxis" class="style2">
+            <i id="icon_sintaxis" class="fas fa-spell-check" style="font-size: 120px;"></i>
+            <strong id="message_sintaxis">Cadena correcta</strong>
+          </li>
+        </ul>
       </section>
     </div>
     <!-- Footer -->
@@ -207,6 +245,7 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/style.js"></script>
   <script src="assets/js/evaluateLexema.js"></script>
+  <script src="assets/js/evaluateSintaxis.js"></script>
 </body>
 
 </html>
